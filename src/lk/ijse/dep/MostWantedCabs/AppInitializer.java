@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 
 import java.net.URL;
 import java.util.logging.FileHandler;
@@ -22,7 +21,6 @@ public class AppInitializer extends Application {
     public static void main(String[] args) {
         launch(args);
 
-        JPAUtil.getEntityManagerFactory().close();
     }
 
     @Override
