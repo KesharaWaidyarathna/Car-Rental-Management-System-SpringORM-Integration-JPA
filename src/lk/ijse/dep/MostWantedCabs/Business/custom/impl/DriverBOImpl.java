@@ -3,7 +3,6 @@ package lk.ijse.dep.MostWantedCabs.Business.custom.impl;
 import lk.ijse.dep.MostWantedCabs.Business.custom.DriverBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.DriverDAO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.DriverDTO;
 import lk.ijse.dep.MostWantedCabs.Entity.Driver;
 import org.springframework.beans.factory.annotation.Autowired;

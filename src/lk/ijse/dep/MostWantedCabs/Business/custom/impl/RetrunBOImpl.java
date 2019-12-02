@@ -2,7 +2,6 @@ package lk.ijse.dep.MostWantedCabs.Business.custom.impl;
 
 import lk.ijse.dep.MostWantedCabs.Business.custom.ReturnBO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.*;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.ReturnDTO;
 import lk.ijse.dep.MostWantedCabs.DTO.ReturnInfoDTO;
 import lk.ijse.dep.MostWantedCabs.Entity.*;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
+
 import java.util.ArrayList;
 import java.util.List;
 

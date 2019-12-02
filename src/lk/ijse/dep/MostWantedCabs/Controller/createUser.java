@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import lk.ijse.dep.MostWantedCabs.DTO.UserDTO;
 
@@ -18,7 +19,7 @@ public class createUser {
     public JFXTextField txtContactNumber;
     public Pane settingsPane;
 
-    private UserBO userBO = BOFactory.getInstance().getBO(BOType.USER);
+    private UserBO userBO = AppInitializer.ctx.getBean(String.valueOf(UserBO.class));
 
     public void initialize(){
         txtUserName.setDisable(true);

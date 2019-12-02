@@ -4,14 +4,13 @@ import lk.ijse.dep.MostWantedCabs.Business.custom.CustomerBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.CustomerDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.IssueDAO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.CustomerDTO;
 import lk.ijse.dep.MostWantedCabs.Entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
+
 import java.util.ArrayList;
 import java.util.List;
 

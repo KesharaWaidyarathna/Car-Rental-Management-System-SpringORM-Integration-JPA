@@ -4,14 +4,12 @@ import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleCategoryBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleCategoryDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleDAO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.VehicleCategoryDTO;
 import lk.ijse.dep.MostWantedCabs.Entity.VehicleCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 

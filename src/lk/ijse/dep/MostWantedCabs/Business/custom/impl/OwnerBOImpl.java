@@ -4,7 +4,7 @@ import lk.ijse.dep.MostWantedCabs.Business.custom.OwnerBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.OwnerDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleDAO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
+
 import lk.ijse.dep.MostWantedCabs.DTO.OwnerDTO;
 import lk.ijse.dep.MostWantedCabs.Entity.Owner;
 import org.springframework.beans.factory.annotation.Autowired;

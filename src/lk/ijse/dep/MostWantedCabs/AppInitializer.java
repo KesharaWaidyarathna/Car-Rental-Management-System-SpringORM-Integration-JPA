@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.net.URL;
 import java.util.logging.FileHandler;
@@ -18,6 +19,8 @@ public class AppInitializer extends Application {
 
     public static boolean spladhlode=false;
 
+    public  static AnnotationConfigApplicationContext ctx;
+
     public static void main(String[] args) {
         launch(args);
 
@@ -26,6 +29,11 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage)  {
         try {
+            ctx=new AnnotationConfigApplicationContext();
+            ctx.register(AppConfig.class);
+            ctx.refresh();
+
+
             Logger rootLogger= Logger.getLogger("");
             FileHandler fileHandler=new FileHandler("exception.log",true);
             fileHandler.setFormatter(new SimpleFormatter());
