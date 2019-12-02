@@ -5,12 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
-import lk.ijse.dep.MostWantedCabs.Business.BOFactory;
-import lk.ijse.dep.MostWantedCabs.Business.BOType;
 import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import lk.ijse.dep.MostWantedCabs.DTO.UserDTO;
 
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

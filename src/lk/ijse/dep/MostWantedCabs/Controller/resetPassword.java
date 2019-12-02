@@ -5,8 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
-import lk.ijse.dep.MostWantedCabs.Business.BOFactory;
-import lk.ijse.dep.MostWantedCabs.Business.BOType;
 import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 
 public class resetPassword {

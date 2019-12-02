@@ -3,12 +3,13 @@ package lk.ijse.dep.MostWantedCabs.DAO.custom.impl;
 import lk.ijse.dep.MostWantedCabs.DAO.CrudDAOImpl;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.DriverDAO;
 import lk.ijse.dep.MostWantedCabs.Entity.Driver;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class DriverDAOImpl extends CrudDAOImpl<Driver,String> implements DriverDAO {
 
     @Override

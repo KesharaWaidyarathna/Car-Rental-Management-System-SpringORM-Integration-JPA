@@ -2,8 +2,6 @@ package lk.ijse.dep.MostWantedCabs.Business.custom.impl;
 
 import lk.ijse.dep.MostWantedCabs.Business.custom.OwnerBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOFactory;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOType;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.OwnerDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleDAO;
 import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
@@ -15,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OwnerBOImpl implements OwnerBO {
-    private OwnerDAO ownerDAO = DAOFactory.getInstance().getDAO(DAOType.OWNER);
-    private VehicleDAO vehicleDAO = DAOFactory.getInstance().getDAO(DAOType.VEHICLE);
+    private OwnerDAO ownerDAO ;
+    private VehicleDAO vehicleDAO ;
 
     @Override
     public void saveOwner(OwnerDTO owner) throws Exception {

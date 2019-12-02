@@ -16,8 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dep.MostWantedCabs.Business.BOFactory;
-import lk.ijse.dep.MostWantedCabs.Business.BOType;
 import lk.ijse.dep.MostWantedCabs.Business.custom.OwnerBO;
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleBO;
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleCategoryBO;

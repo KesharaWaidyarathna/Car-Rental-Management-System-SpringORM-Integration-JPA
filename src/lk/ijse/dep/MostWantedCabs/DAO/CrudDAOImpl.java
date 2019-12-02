@@ -4,12 +4,14 @@ import lk.ijse.dep.MostWantedCabs.Entity.SuperEntity;
 import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public abstract class CrudDAOImpl<T extends SuperEntity, ID extends Serializable> implements CrudDAO<T, ID> {
 
+    @PersistenceContext
     protected EntityManager entityManager;
     private Class<T> entity;
 

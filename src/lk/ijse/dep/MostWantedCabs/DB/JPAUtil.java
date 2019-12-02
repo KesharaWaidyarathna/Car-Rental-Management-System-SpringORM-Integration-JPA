@@ -21,12 +21,10 @@ public class JPAUtil {
     private  static EntityManagerFactory buildEntityManager(){
 
         File file = new File("resources/application.properties");
-
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             Properties properties = new Properties();
             properties.load(fileInputStream);
-
 
             username=DEPCrypt.decode(properties.getProperty("javax.persistence.jdbc.user"),"dep4");
             password= DEPCrypt.decode(properties.getProperty("javax.persistence.jdbc.password"),"dep4");
@@ -44,7 +42,6 @@ public class JPAUtil {
             System.exit(1);
             return null;
         }
-
     }
 
     public static EntityManagerFactory getEntityManagerFactory(){
@@ -54,7 +51,6 @@ public class JPAUtil {
     public static String getUsername() {
         return username;
     }
-
 
     public static String getPassword() {
         return password;
@@ -71,5 +67,4 @@ public class JPAUtil {
     public static String getHost() {
         return host;
     }
-
 }

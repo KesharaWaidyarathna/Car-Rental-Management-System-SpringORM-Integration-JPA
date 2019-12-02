@@ -2,8 +2,6 @@ package lk.ijse.dep.MostWantedCabs.Business.custom.impl;
 
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOFactory;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOType;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.IssueDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.QuaryDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleDAO;

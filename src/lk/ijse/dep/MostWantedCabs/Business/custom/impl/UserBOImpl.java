@@ -1,8 +1,6 @@
 package lk.ijse.dep.MostWantedCabs.Business.custom.impl;
 
 import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOFactory;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOType;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.UserDAO;
 import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.UserDTO;

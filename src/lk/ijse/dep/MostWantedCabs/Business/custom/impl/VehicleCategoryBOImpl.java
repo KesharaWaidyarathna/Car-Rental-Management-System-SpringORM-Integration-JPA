@@ -2,8 +2,6 @@ package lk.ijse.dep.MostWantedCabs.Business.custom.impl;
 
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleCategoryBO;
 import lk.ijse.dep.MostWantedCabs.Business.exception.AlreadyExist;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOFactory;
-import lk.ijse.dep.MostWantedCabs.DAO.DAOType;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleCategoryDAO;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.VehicleDAO;
 import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;

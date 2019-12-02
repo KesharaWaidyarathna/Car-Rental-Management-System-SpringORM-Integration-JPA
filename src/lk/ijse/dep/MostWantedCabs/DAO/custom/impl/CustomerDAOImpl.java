@@ -3,9 +3,11 @@ package lk.ijse.dep.MostWantedCabs.DAO.custom.impl;
 import lk.ijse.dep.MostWantedCabs.DAO.CrudDAOImpl;
 import lk.ijse.dep.MostWantedCabs.DAO.custom.CustomerDAO;
 import lk.ijse.dep.MostWantedCabs.Entity.Customer;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 
+@Repository
 public class CustomerDAOImpl extends CrudDAOImpl<Customer,String> implements CustomerDAO {
 
     @Override
