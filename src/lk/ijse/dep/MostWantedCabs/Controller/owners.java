@@ -15,8 +15,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.OwnerBO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.OwnerDTO;
 import lk.ijse.dep.MostWantedCabs.Util.OwnerTM;
 import net.sf.jasperreports.engine.JRException;
@@ -27,7 +27,6 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import org.hibernate.Session;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -43,7 +42,7 @@ public class owners {
     public JFXButton btnSave;
     public JFXButton btnDelete;
     public TableView<OwnerTM> tblOwner;
-    private OwnerBO ownerBO= BOFactory.getInstance().getBO(BOType.OWNER);
+    private OwnerBO ownerBO= AppInitializer.ctx.getBean(OwnerBO.class);
 
     public void initialize(){
 
@@ -204,8 +203,7 @@ public class owners {
         try {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/Ownerss.jasper"));
             Map<String, Object> params = new HashMap<>();
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {

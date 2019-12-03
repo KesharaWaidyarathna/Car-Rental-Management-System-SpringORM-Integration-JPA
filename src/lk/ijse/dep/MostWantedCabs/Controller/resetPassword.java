@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 
 public class resetPassword {
@@ -12,7 +13,7 @@ public class resetPassword {
     public JFXTextField txtNewPassword;
     public Pane resetPassword;
 
-    private UserBO userBO= BOFactory.getInstance().getBO(BOType.USER);
+    private UserBO userBO= AppInitializer.ctx.getBean(UserBO.class);
     public void btnSaveOnAction(ActionEvent actionEvent) {
         try {
             if(userBO.existUser(txtOldPassword.getText())){

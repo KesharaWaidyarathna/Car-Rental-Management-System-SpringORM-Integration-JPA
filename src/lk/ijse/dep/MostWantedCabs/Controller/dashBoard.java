@@ -16,13 +16,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.dep.MostWantedCabs.AppInitializer;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
+import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 
 public class dashBoard {
     public AnchorPane anpDashBoard;
@@ -151,8 +150,7 @@ public class dashBoard {
         fadein.play();
 
         fadein.setOnFinished((event -> {
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             fadeout.play();
 
         }));

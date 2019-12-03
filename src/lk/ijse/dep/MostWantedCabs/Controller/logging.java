@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import lk.ijse.dep.MostWantedCabs.DTO.UserDTO;
 
@@ -25,7 +26,7 @@ public class logging {
     public JFXTextField txtUserName;
 
 
-    public UserBO userBO= BOFactory.getInstance().getBO(BOType.USER);
+    public UserBO userBO= AppInitializer.ctx.getBean(UserBO.class);
     public JFXPasswordField txtPassword;
 
 

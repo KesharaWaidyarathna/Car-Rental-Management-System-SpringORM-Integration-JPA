@@ -15,8 +15,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.CustomerBO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
+
+import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import lk.ijse.dep.MostWantedCabs.DTO.CustomerDTO;
 import lk.ijse.dep.MostWantedCabs.Util.CustomerTM;
 import net.sf.jasperreports.engine.JRException;
@@ -45,7 +47,7 @@ public class customers {
     public JFXTextField txtLicenseCardNumber;
     public JFXButton btnDelete;
 
-    public CustomerBO customerBo=BOFactory.getInstance().getBO(BOType.CUSTOMER);
+    public CustomerBO customerBo= AppInitializer.ctx.getBean(CustomerBO.class);
 
     public void initialize(){
 
@@ -232,8 +234,7 @@ public class customers {
         try {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/CustomersRPT.jasper"));
             Map<String, Object> params = new HashMap<>();
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {

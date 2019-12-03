@@ -8,7 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
-import static lk.ijse.dep.MostWantedCabs.DB.JPAUtil.*;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
+import lk.ijse.dep.crypto.DEPCrypt;
+import org.springframework.core.env.Environment;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,7 +21,31 @@ public class restoreDatabase {
     public ProgressIndicator pgb;
     public Label lblstatues;
 
-    public void initialize(){
+    private Environment env;
+
+    private   String getUsername() {
+        return DEPCrypt.decode(env.getProperty("javax.persistence.jdbc.user"),"dep4") ;
+    }
+
+
+    private   String getPassword() {
+        return DEPCrypt.decode(env.getProperty("javax.persistence.jdbc.password"),"dep4");
+    }
+
+    private   String getDb() {
+        return env.getRequiredProperty("ijse.dep.db");
+    }
+
+    private  String getPort() {
+        return env.getRequiredProperty("ijse.dep.port");
+    }
+
+    private   String getHost() {
+        return env.getRequiredProperty("ijse.dep.host");
+
+    }
+        public void initialize(){
+        env= AppInitializer.ctx.getBean(Environment.class);
         pgb.setVisible(false);
     }
 

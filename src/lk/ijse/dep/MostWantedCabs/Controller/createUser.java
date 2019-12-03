@@ -19,7 +19,7 @@ public class createUser {
     public JFXTextField txtContactNumber;
     public Pane settingsPane;
 
-    private UserBO userBO = AppInitializer.ctx.getBean(String.valueOf(UserBO.class));
+    private UserBO userBO = AppInitializer.ctx.getBean(UserBO.class);
 
     public void initialize(){
         txtUserName.setDisable(true);

@@ -17,8 +17,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.*;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
+
 import lk.ijse.dep.MostWantedCabs.DTO.*;
 import lk.ijse.dep.MostWantedCabs.Util.IssueTM;
 import net.sf.jasperreports.engine.JRException;
@@ -53,10 +54,10 @@ public class issueVehicles {
     public JFXComboBox<String> cmbDriverID;
     public JFXButton btnIssue;
 
-    private IssueBO issueBO= BOFactory.getInstance().getBO(BOType.ISSUE);
-    private CustomerBO customerBO=BOFactory.getInstance().getBO(BOType.CUSTOMER);
-    private VehicleBO vehicleBO=BOFactory.getInstance().getBO(BOType.VEHICLE);
-    private DriverBO driverBO=BOFactory.getInstance().getBO(BOType.DRIVER);
+    private IssueBO issueBO= AppInitializer.ctx.getBean(IssueBO.class);
+    private CustomerBO customerBO=AppInitializer.ctx.getBean(CustomerBO.class);
+    private VehicleBO vehicleBO=AppInitializer.ctx.getBean(VehicleBO.class);
+    private DriverBO driverBO=AppInitializer.ctx.getBean(DriverBO.class);
 
     public void initialize(){
 
@@ -280,8 +281,7 @@ public class issueVehicles {
         try {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/IssuVehicle.jasper"));
             Map<String, Object> params = new HashMap<>();
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {

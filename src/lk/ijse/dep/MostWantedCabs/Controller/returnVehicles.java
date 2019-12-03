@@ -17,8 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.*;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.*;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -52,11 +52,11 @@ public class returnVehicles {
     public JFXTextField txtIssueDate;
     public JFXButton btnReturn;
 
-    private ReturnBO returnBO= BOFactory.getInstance().getBO(BOType.RETURN);
-    private IssueBO issueBO=BOFactory.getInstance().getBO(BOType.ISSUE);
-    private VehicleBO vehicleBO=BOFactory.getInstance().getBO(BOType.VEHICLE);
-    private CustomerBO customerBO=BOFactory.getInstance().getBO(BOType.CUSTOMER);
-    private VehicleCategoryBO vehicleCategoryBO=BOFactory.getInstance().getBO(BOType.VEHICLE_CATEGORY);
+    private ReturnBO returnBO= AppInitializer.ctx.getBean(ReturnBO.class);
+    private IssueBO issueBO=AppInitializer.ctx.getBean(IssueBO.class);
+    private VehicleBO vehicleBO=AppInitializer.ctx.getBean(VehicleBO.class);
+    private CustomerBO customerBO=AppInitializer.ctx.getBean(CustomerBO.class);
+    private VehicleCategoryBO vehicleCategoryBO=AppInitializer.ctx.getBean(VehicleCategoryBO.class);
     String statues="Issued";
     double rentforday= 0.0;
     double rentfokm=0.0;
@@ -229,8 +229,7 @@ public class returnVehicles {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/invoice.jasper"));
             Map<String, Object> params = new HashMap<>();
             params.put("id",cmbIssueID.getValue());
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {
@@ -263,8 +262,7 @@ public class returnVehicles {
         try {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/ReturnVehicle.jasper"));
             Map<String, Object> params = new HashMap<>();
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {

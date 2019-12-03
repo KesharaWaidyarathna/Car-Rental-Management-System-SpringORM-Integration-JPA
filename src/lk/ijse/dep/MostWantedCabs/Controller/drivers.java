@@ -15,7 +15,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.DriverBO;
+import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import lk.ijse.dep.MostWantedCabs.DTO.DriverDTO;
 import lk.ijse.dep.MostWantedCabs.Util.DriverTM;
 
@@ -39,7 +41,7 @@ public class drivers {
     public JFXTextField txtStatues;
     public JFXButton btnDelete;
 
-    private DriverBO driverBO= BOFactory.getInstance().getBO(BOType.DRIVER);
+    private DriverBO driverBO= AppInitializer.ctx.getBean(DriverBO.class);
 
     public void initialize(){
 

@@ -14,8 +14,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleBO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.VehicleDTO;
 import lk.ijse.dep.MostWantedCabs.Util.VehicleTM;
 import net.sf.jasperreports.engine.JRException;
@@ -26,7 +26,6 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import org.hibernate.Session;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -40,7 +39,7 @@ public class search {
     public JFXTextField txtSearch;
     public TableView<VehicleTM> tblSearch;
 
-    private VehicleBO vehicleBO= BOFactory.getInstance().getBO(BOType.VEHICLE);
+    private VehicleBO vehicleBO= AppInitializer.ctx.getBean(VehicleBO.class);
 
     public  void initialize(){
 
@@ -117,8 +116,7 @@ public class search {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/SearchVehicles.jasper"));
             Map<String, Object> params = new HashMap<>();
             params.put("search",search);
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {

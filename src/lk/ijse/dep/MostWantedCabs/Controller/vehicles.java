@@ -16,10 +16,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dep.MostWantedCabs.AppInitializer;
+import lk.ijse.dep.MostWantedCabs.Business.custom.IssueBO;
 import lk.ijse.dep.MostWantedCabs.Business.custom.OwnerBO;
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleBO;
 import lk.ijse.dep.MostWantedCabs.Business.custom.VehicleCategoryBO;
-import lk.ijse.dep.MostWantedCabs.DB.JPAUtil;
 import lk.ijse.dep.MostWantedCabs.DTO.OwnerDTO;
 import lk.ijse.dep.MostWantedCabs.DTO.VehicleCategoryDTO;
 import lk.ijse.dep.MostWantedCabs.DTO.VehicleDTO;
@@ -58,9 +59,9 @@ public class vehicles {
     public JFXTextField txtCategoryName;
     public JFXTextField txtOwnerName;
 
-    private VehicleBO vehicleBO= BOFactory.getInstance().getBO(BOType.VEHICLE);
-    private VehicleCategoryBO vehicleCategoryBO=BOFactory.getInstance().getBO(BOType.VEHICLE_CATEGORY);
-    private OwnerBO ownerBO=BOFactory.getInstance().getBO(BOType.OWNER);
+    private VehicleBO vehicleBO= AppInitializer.ctx.getBean(VehicleBO.class);
+    private VehicleCategoryBO vehicleCategoryBO=AppInitializer.ctx.getBean(VehicleCategoryBO.class);
+    private OwnerBO ownerBO=AppInitializer.ctx.getBean(OwnerBO.class);
 
     public void initialize(){
 
@@ -311,8 +312,7 @@ public class vehicles {
         try {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/Vehicle.jasper"));
             Map<String, Object> params = new HashMap<>();
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            Session session = entityManager.unwrap(Session.class);
+            Session session = AppInitializer.ctx.getBean(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {
