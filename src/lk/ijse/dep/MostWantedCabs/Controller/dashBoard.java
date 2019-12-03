@@ -20,6 +20,7 @@ import lk.ijse.dep.MostWantedCabs.Business.custom.UserBO;
 import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.net.URL;
 
@@ -150,7 +151,8 @@ public class dashBoard {
         fadein.play();
 
         fadein.setOnFinished((event -> {
-            Session session = AppInitializer.ctx.getBean(Session.class);
+            EntityManager entityManager=AppInitializer.ctx.getBean(EntityManagerFactory.class).createEntityManager();
+            Session session = entityManager.unwrap(Session.class);
             fadeout.play();
 
         }));

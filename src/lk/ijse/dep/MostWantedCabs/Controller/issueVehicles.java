@@ -32,6 +32,7 @@ import org.hibernate.Session;
 
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -281,7 +282,8 @@ public class issueVehicles {
         try {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/MostWantedCabs/Reports/IssuVehicle.jasper"));
             Map<String, Object> params = new HashMap<>();
-            Session session = AppInitializer.ctx.getBean(Session.class);
+            EntityManager entityManager=AppInitializer.ctx.getBean(EntityManagerFactory.class).createEntityManager();
+            Session session = entityManager.unwrap(Session.class);
             session.doWork(connection -> {
                 JasperPrint jasperPrint = null;
                 try {
